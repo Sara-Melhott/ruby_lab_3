@@ -21,10 +21,11 @@ class AnonForumApp < Roda
 
   require_relative 'routes/discussion'
 
+  # TODO: Исправить нормально /lab_3/
   opts[:discussions] =
     ListDiscussions.new([],
-                        File.expand_path('../lab_3/data/input.json', __dir__))
-  opts[:discussions].read_data_json(File.expand_path('../lab_3/data/input.json',
+                        File.expand_path('data/input.json', __dir__))
+  opts[:discussions].read_data_json(File.expand_path('data/input.json',
                                                      __dir__))
   opts[:filters] = DiscussionFilter.filter
   puts '[WEB-APPLICATION]: list discussions JSON file reading completed'
