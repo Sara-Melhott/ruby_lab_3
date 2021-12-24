@@ -1,0 +1,17 @@
+<div class="cell">
+    <h2> Добавление обсуждения </h2>
+    <a class="button" href="/discussions"> Вернутся </a>
+
+    <% form({ method: :post }, { obj: @disc_form }) do |f| %>
+      <div class="grid-x grid-margin-x">
+        <div class="cell">
+          <%= f.input(:name, type: :text, label: 'Тема', placeholder: 'ANNO 1800')%>
+          <%= f.input(:list_tags, type: :text, label: 'Теги', placeholder: '#Игры#Градострой')%>
+        </div>
+        <div class="cell">
+          <%= f.button(value: 'Создать', class: 'button') %>
+        </div>
+      </div>
+    <% end %>
+</div>
+

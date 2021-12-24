@@ -1,0 +1,17 @@
+# frozen_string_literal: true
+
+source 'https://rubygems.org'
+
+gem 'dry-schema'
+gem 'forme'
+gem 'puma'
+gem 'roda'
+gem 'tilt'
+
+group :development do
+  gem 'rerun'
+  gem 'rspec'
+  gem 'rubocop'
+  gem 'rubocop-rspec'
+  gem 'simplecov'
+end

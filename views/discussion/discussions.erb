@@ -1,0 +1,55 @@
+<div class="grid-x grid-padding-x">
+        <div class="cell">
+            <h2> Список обсуждений: </h2>
+            <form method="get">
+                <label>Выберите тег
+                    <select name="tag">
+                        <% opts[:discussions].list_tags.each do |key, value2| %>
+                            <option value="<%= key %>"><%= value2 %></option>
+                        <% end %>
+                    </select>
+                </label>
+                <label>Выберите сортировку
+                    <select name="filter">
+                        <% opts[:filters].each do |key, value2| %>
+                            <option value="<%= key %>"><%= value2 %></option>
+                        <% end %>
+                    </select>
+                <label>
+                <button class="button" type="submit"> Выбрать </button>
+            </form>
+            <div class="button-group">
+                <a class="button secondary" href="/"> Сбросить </a>
+            </div>
+        </div>
+        <% if @list_discussions.empty? %>
+            <h3> Обсуждений не найдено </h3>
+        <% else %>
+        <div class="cell">
+        <div class="card">
+        <div class="card-section">
+            <table>
+                <thead>
+                    <tr>
+                        <th> Тема </th>
+                        <th> Теги </th>
+                        <th width="200"> Дата создания </th>
+                        <th width="150"> Подробнее </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <% @list_discussions.each do |discussion| %>
+                        <tr>
+                            <td><%= discussion.name %></td>
+                            <td><%= discussion.list_tags %></td>
+                            <td><%= discussion.date_creation %></td>
+                            <td><a class="button hollow" href="/discussions/<%= discussion.id %>"> Перейти </a> </td>
+                        </tr>
+                    <% end %>
+                </tbody>
+            </table>
+        </div>
+        </div>
+        </div>
+        <% end %>
+</div>

@@ -1,0 +1,15 @@
+<div class="cell">
+    <h2> Цензурирование </h2>
+    <a class="button" href="/"> Вернутся </a>
+
+    <% form({ method: :post }, { obj: @word}) do |f| %>
+      <div class="grid-x grid-margin-x">
+        <div class="cell">
+          <%= f.input(:word, type: :text, label: 'Введите слово', placeholder: 'кот')%>
+        </div>
+        <div class="cell">
+          <%= f.button(value: 'Применить', class: 'button') %>
+        </div>
+      </div>
+    <% end %>
+</div>

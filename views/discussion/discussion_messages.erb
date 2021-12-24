@@ -1,0 +1,41 @@
+<div cclass="grid-x">
+    <div class="card">
+    <div class="card-divider">
+    <div class ="cell large-12">
+        <h2> Информация об обсуждении </h2>
+
+        <h3><%= @discussion.name %> </h3>
+
+        <p> <b> Дата создания: </b> <%= @discussion.date_creation %> </p>
+        <p> <b> Теги: </b> <%= @discussion.list_tags %> </p>
+
+        <a class="button" href="/discussions"> Вернуться </a>
+        <a class="button" href="/discussions/new_message/<%= @discussion.id %>"> Добавить сообщение </a>
+    </div>
+    </div>
+    <% if @list_messages.empty? %>
+        <h3> Сообщений пока нет </h3>
+    <% else %>
+        <div class="card-section">
+            <table>
+                <thead>
+                    <tr>
+                        <th width="200"> Пользователь </th>
+                        <th width="300"> Дата </th>
+                        <th> Текст </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <% @list_messages.each do |message| %>
+                        <tr>
+                            <td><%= message.user_name %></td>
+                            <td><%= message.timestamp %></td>
+                            <td><%= message.text %></td>
+                        </tr>
+                    <% end %>
+                </tbody>
+            </table>
+        </div>
+    <% end %>
+    </div>
+</div>
